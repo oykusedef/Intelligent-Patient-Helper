@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Dashboard - Intelligent Patient System</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🏥</text></svg>">
+</head>
+<body>
+    <div class="container">
+        <div class="dashboard" id="dashboardSection">
+            <div class="dashboard-header">
+                <div class="logo-section">
+                    <div class="logo-icon">
+                        <i class="fas fa-stethoscope" aria-hidden="true"></i>
+                    </div>
+                    <h1>Intelligent Patient System</h1>
+                </div>
+                <div class="patient-info" id="dashboardPatientInfo">
+                    <div class="patient-details">
+                        <div class="detail-item">
+                            <i class="fas fa-user" aria-hidden="true"></i>
+                            <span id="dashboardPatientName">-</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-id-card" aria-hidden="true"></i>
+                            <span id="dashboardPatientTc">-</span>
+                        </div>
+                    </div>
+                </div>
+                <button id="logoutButton" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+            
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-section="aiDiagnosisSection">
+                    <i class="fas fa-brain"></i> AI Diagnosis
+                </button>
+                <button class="nav-tab" data-section="appointmentsSection">
+                    <i class="fas fa-calendar-check"></i> My Appointments
+                </button>
+                <button class="nav-tab" data-section="doctorsSection">
+                    <i class="fas fa-user-md"></i> Expert Doctors
+                </button>
+                <button class="nav-tab" data-section="healthHistorySection">
+                    <i class="fas fa-clipboard-list"></i> Health History
+                </button>
+            </div>
+
+            <div class="dashboard-section" id="aiDiagnosisSection">
+                <div class="chat-container">
+                    <div class="chat-messages" id="chatMessages">
+                        <!-- <div class="message system">
+                            <div class="message-content">
+                                <p>Hello! I'm your AI-powered health assistant. You can describe your symptoms and I'll provide diagnostic support. How can I help you today?</p>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="chat-input-container">
+                        <textarea id="userInput" placeholder="Describe your symptoms in detail..."></textarea>
+                        <button id="sendButton" class="send-btn" aria-label="Send message">
+                            <i class="fas fa-paper-plane" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="recommendations hidden" id="recommendationsSection">
+                    <h3>Recommendations</h3>
+                    <div id="recommendationsList"></div>
+                </div>
+            </div>
+
+            <div class="dashboard-section hidden" id="appointmentsSection">
+                <h2>Your Appointments</h2>
+                <div class="appointments-container">
+                    <div class="appointments-list" id="appointmentsList">
+                        <div class="empty-state">
+                            <i class="fas fa-calendar-xmark"></i>
+                            <p>You don't have any appointments yet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-section hidden" id="doctorsSection">
+                <h2>Our Expert Doctors</h2>
+                <div class="departments-filter">
+                    <label>Filter by department:</label>
+                    <select id="departmentFilter">
+                        <option value="all">All Departments</option>
+                        <option value="Neurology">Neurology</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Orthopedics">Orthopedics</option>
+                        <option value="Gastroenterology">Gastroenterology</option>
+                        <option value="Dermatology">Dermatology</option>
+                        <option value="ENT">ENT</option>
+                        <option value="Ophthalmology">Ophthalmology</option>
+                        <option value="Internal Medicine">Internal Medicine</option>
+                        <option value="Pulmonology">Pulmonology</option>
+                        <option value="Endocrinology">Endocrinology</option>
+                        <option value="Diabetes Management">Diabetes Management</option>
+                    </select>
+                </div>
+                <div class="doctors-list" id="expertDoctorsList">
+                </div>
+            </div>
+
+            <div class="dashboard-section hidden" id="healthHistorySection">
+                <h2>Your Health History</h2>
+                <div class="history-container">
+                    <div class="history-section">
+                        <h3>Past Conditions</h3>
+                        <ul id="pastConditionsList">
+                        </ul>
+                    </div>
+                    <div class="history-section">
+                        <h3>Current Medications</h3>
+                        <ul id="medicationsList">
+                        </ul>
+                    </div>
+                    <div class="history-section">
+                        <h3>Past Appointments</h3>
+                        <div id="pastAppointmentsList">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="dashboard.js"></script>
+</body>
+</html> 
